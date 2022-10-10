@@ -15,7 +15,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src\\test\\java\\com\\feature\\flipkart.feature", 
-				glue = "com.step_definition", dryRun = false, strict = true, monochrome = true)
+				glue = "com.step_definition", dryRun = false, strict = true, monochrome = true,
+				tags = "@login")
 public class TestRunner {
 	public static WebDriver driver;
 	
@@ -27,6 +28,6 @@ public class TestRunner {
 	
 	@AfterClass
 	public static void tearDown() {
-		//BaseClass.driverQuit();
+		BaseClass.driverQuit();
 	}
 }

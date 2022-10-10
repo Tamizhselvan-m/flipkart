@@ -1,11 +1,12 @@
 Feature: Flipkart Application
-
+@login
 Scenario: Login Page
-    Given user Launch The Url 
-    When user Enter The "email2tamizh@gmail.com" In Username Textfield
-    And user Enter The "angrymts1918606" In Password Textfield
-    Then user Click The Login Button And It Navigate To Home Page
-
+    Given User launch the application
+    When User enter "username" as username in textfield
+    And User enter "password" in password textfield
+    And User click on the login button
+    Then It Will Navigate To Home Page
+@login
 Scenario: Home Page
     When user Enter The "iphone 13" In Searchbox Textfield 
     Then user Click The Search Button And It Navigate To Search Result Page

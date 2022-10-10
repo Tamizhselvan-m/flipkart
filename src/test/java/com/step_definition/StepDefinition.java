@@ -1,5 +1,7 @@
 package com.step_definition;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.util.Set;
 
@@ -18,27 +20,32 @@ import cucumber.api.java.en.When;
 public class StepDefinition extends BaseClass {
 	public static WebDriver driver = TestRunner.driver;
 	SingletonDesignPattern s = new SingletonDesignPattern(driver);
-
-	@Given("^user Launch The Url$")
-	public void user_Launch_The_Url() throws Throwable {
+	@Given("^User launch the application$")
+	public void user_launch_the_application() throws Throwable {
 		String url = ConfigurationHelper.getInstance().getInstanceCR().getUrl();
 		urlLaunch(url);
 	}
 
-	@When("^user Enter The \"([^\"]*)\" In Username Textfield$")
-	public void user_Enter_The_In_Username_Textfield(String username) throws Throwable {
+	@When("^User enter \"([^\"]*)\" as username in textfield$")
+	public void user_enter_as_username_in_textfield(String username) throws Throwable {
 		explicitWait(s.getLoginPage().getUsername());
 		userInput(s.getLoginPage().getUsername(), username);
 	}
 
-	@When("^user Enter The \"([^\"]*)\" In Password Textfield$")
-	public void user_Enter_The_In_Password_Textfield(String password) throws Throwable {
+	@When("^User enter \"([^\"]*)\" in password textfield$")
+	public void user_enter_in_password_textfield(String password) throws Throwable {
 		userInput(s.getLoginPage().getPassword(), password);
 	}
 
-	@Then("^user Click The Login Button And It Navigate To Home Page$")
-	public void user_Click_The_Login_Button_And_It_Navigate_To_Home_Page() throws Throwable {
+	@When("^User click on the login button$")
+	public void user_click_on_the_login_button() throws Throwable {
 		userClick(s.getLoginPage().getLogin());
+	}
+
+	@Then("^It Will Navigate To Home Page$")
+	public void it_Will_Navigate_To_Home_Page() throws Throwable {
+		String expected = "Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+	   assertEquals("Scenario passed", expected, driver.getTitle());
 	}
 
 	@When("^user Enter The \"([^\"]*)\" In Searchbox Textfield$")
