@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 import com.flipkart.BaseClass;
 import com.properties.ConfigurationHelper;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src\\test\\java\\com\\feature\\flipkart.feature", 
-				glue = "com.step_definition", dryRun = false, strict = true, monochrome = true,
-				tags = "@login")
+				glue = "com.step_definition", dryRun = false, monochrome = true,
+				plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class TestRunner {
 	public static WebDriver driver;
 	

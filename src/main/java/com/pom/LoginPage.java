@@ -24,7 +24,7 @@ public class LoginPage {
 		return password;
 	}
 	
-	@FindBy(xpath = "//span[text()='Login']//parent::button")
+	@FindBy(xpath = "//button[text()='✕']")
 	private WebElement login;
 	public WebElement getLogin() {
 		return login;

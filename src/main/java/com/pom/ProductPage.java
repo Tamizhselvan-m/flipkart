@@ -12,7 +12,7 @@ public class ProductPage {
 		this.driver = driver;
 	}
 	
-	@FindBy(xpath = "//button[text()='Add to Cart']")
+	@FindBy(xpath = "//button[text()='Buy Now']")
 	private WebElement add;
 	public WebElement getAdd() {
 		return add;
